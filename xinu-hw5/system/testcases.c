@@ -4,7 +4,7 @@
  *
  * $Id: testcases.c 175 2008-01-30 01:18:27Z brylow $
  *
- * Modified by:
+ * Modified by: Casey O'Hare & Sam Ostlund
  *
  * and
  *
