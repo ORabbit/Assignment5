@@ -1,0 +1,25 @@
+start.o: ../loader/start.S ../include/mips.h ../include/interrupt.h
+flushcache.o: ../loader/flushcache.S ../include/mips.h
+startup.o: ../system/startup.S ../include/mips.h
+irq.o: ../system/irq.S ../include/mips.h ../include/interrupt.h
+ctxsw.o: ../system/ctxsw.S ../include/mips.h
+kprintf.o: ../system/kprintf.c ../include/kernel.h ../include/stdarg.h \
+ ../include/device.h ../include/stdio.h ../include/uart.h
+xtrap.o: ../system/xtrap.c ../include/kernel.h ../include/mips.h \
+ ../include/interrupt.h
+testcases.o: ../system/testcases.c ../include/kernel.h \
+ ../include/device.h ../include/stdio.h ../include/stdarg.h \
+ ../include/uart.h ../include/proc.h ../include/mips.h
+main.o: ../system/main.c ../include/kernel.h ../include/proc.h \
+ ../include/mips.h
+queue.o: ../system/queue.c ../include/proc.h ../include/kernel.h \
+ ../include/mips.h ../include/queue.h
+create.o: ../system/create.c ../include/kernel.h ../include/proc.h \
+ ../include/mips.h ../include/stdarg.h ../include/string.h
+ready.o: ../system/ready.c ../include/kernel.h ../include/proc.h \
+ ../include/mips.h ../include/queue.h
+resched.o: ../system/resched.c ../include/kernel.h ../include/proc.h \
+ ../include/mips.h ../include/queue.h
+getstk.o: ../system/getstk.c ../include/kernel.h ../include/platform.h
+kill.o: ../system/kill.c ../include/kernel.h ../include/proc.h \
+ ../include/mips.h ../include/queue.h
