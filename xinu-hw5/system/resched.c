@@ -3,6 +3,7 @@
  * @provides resched
  *
  * COSC 125 / COEN 183 Assignment 4
+ * Modified by: Casey O'Hare & Sam Ostlund
  */
 /* Embedded XINU, Copyright (C) 2008.  All rights reserved. */
 
@@ -35,7 +36,8 @@ syscall resched(void)
 	if (PRCURR == oldproc->state) 
 	{
 		oldproc->state = PRREADY;
-		enqueue(currpid, readylist);
+		//enqueue(currpid, readylist);
+		prioritize(currpid, readylist, oldproc->priority);
 	}
 
 	/* remove first process in ready queue */
@@ -43,10 +45,19 @@ syscall resched(void)
 	newproc = &proctab[ currpid ];
 	newproc->state = PRCURR;	/* mark it currently running	*/
 
+#if AGING
+	head = queuehead(readylist);
+	while(queuetab[head].next != NULL)
+	{
+		queuetab[head].key++;
+		head = queuetab[head].next;
+	}
+#endif
+
 #if PREEMPT
 	preempt = QUANTUM;          /* reset preemption counter     */
 #endif
-	ctxsw(&oldproc->regs, &newproc->regs);
+	ctxsw(&oldproc->stkptr, &newproc->stkptr);
 
 	/* The OLD process returns here when resumed. */
 	restore(im);

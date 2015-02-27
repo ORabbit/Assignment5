@@ -22,7 +22,7 @@
 /* Embedded XINU, Copyright (C) 2007.  All rights reserved. */
 
 /* queue structure declarations, constants, and inline procedures       */
-
+#include <kernel.h> // Maybe somewhere else
 #ifndef _QUEUE_H_
 #define _QUEUE_H_
 
@@ -37,6 +37,7 @@ struct qentry
 {                       /**< one for each process plus two for each list */
 	short next;         /**< index of next process or tail               */
 	short prev;         /**< index of previous process or head           */
+	ulong key;	/**< key to sort the queue */
 };
 
 extern struct qentry queuetab[];

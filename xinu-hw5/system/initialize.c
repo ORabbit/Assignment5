@@ -147,7 +147,7 @@ local sysinit(void)
 	ppcb->state        = PRCURR;
 	strncpy(ppcb->name, "prnull", 7);
 	ppcb->stkbase      = (void *)&end;
-	ppcb->regs[PREG_SP]= NULL;
+	ppcb->stkptr	   = NULL;
 	ppcb->stklen       = (ulong)minheap - (ulong)&end;
 	/* TODO: This line won't compile properly until you have added
 	 * a priority field to the process control block.
