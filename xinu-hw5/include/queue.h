@@ -21,6 +21,10 @@
  */
 /* Embedded XINU, Copyright (C) 2007.  All rights reserved. */
 
+/**
+ * Modified by: Casey O'Hare & Sam Ostlund
+ * */
+
 /* queue structure declarations, constants, and inline procedures       */
 //#include <kernel.h> // Maybe somewhere else
 #ifndef _QUEUE_H_
@@ -62,7 +66,7 @@ short enqueue(short, queue);
 short remove(short);
 short dequeue(queue);
 queue newqueue(void);
-short prioritize(short pid, queue q, unsigned long key);
+short prioritize(short pid, queue q, ulong key);
 void printqueue(queue q);
 
 #endif /* _QUEUE_H_ */

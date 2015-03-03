@@ -2,7 +2,8 @@
  * @file ready.c
  * @provides ready
  *
- * COSC 125 / COEN 183 Assignment 4
+ * COSC 125 / COEN 183 Assignment 5
+ * Modified by: Casey O'Hare & Sam Ostlund
  */
 /* Embedded XINU, Copyright (C) 2008.  All rights reserved. */
 

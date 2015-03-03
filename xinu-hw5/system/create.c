@@ -2,7 +2,8 @@
  * @file create.c
  * @provides create, newpid, userret
  *
- * COSC 3250 / COEN 4820 Assignment 4
+ * COSC 3250 / COEN 4820 Assignment 5
+ * Modified by: Casey O'Hare & Sam Ostlund
  */
 /* Embedded XINU, Copyright (C) 2010.  All rights reserved. */
   

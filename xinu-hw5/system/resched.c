@@ -36,7 +36,6 @@ syscall resched(void)
 	if (PRCURR == oldproc->state) 
 	{
 		oldproc->state = PRREADY;
-		//enqueue(currpid, readylist);
 		prioritize(currpid, readylist, oldproc->priority);
 	}
 
@@ -47,10 +46,11 @@ syscall resched(void)
 
 #if AGING
 	head = queuehead(readylist);
-	while(queuetab[head].next != NULL)
+	while(queuetab[head].next != queuetail(readylist)) //Iterate over the queue
 	{
-		queuetab[head].key++;
 		head = queuetab[head].next;
+		if(head != 0)
+			queuetab[head].key++; //Increment key
 	}
 #endif
 
